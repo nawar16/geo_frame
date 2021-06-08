@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Explore</title>
+    <script src='https://aframe.io/releases/1.0.4/aframe.min.js'></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/Ar.js/master/aframe/build/aframe-ar-nft.js"></script>
+    </script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    <script>
+        AFRAME.registerComponent("locationfinder", {
+            init: function() {
+                navigator.geolocation.getCurrentPosition(function(location) {
+                    console.log(location);
+                });
+            },
+        });
+    </script>
+    <a-scene vr-mode-ui='enabled: false' embedded arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera="simulatelatitude: 34.7302977 ; simulatelongitude: 36.6770821;" rotation-reader>
+            <a-text value="Test Text" scale="15 15 15" look-at="[pgs-camera]" align="center" gps-entity-place="latitude: 34.7302977 ; longitude: 36.6770821;">
+            </a-text>
+        </a-camera>
+    </a-scene>
+    </div>
+</body>
